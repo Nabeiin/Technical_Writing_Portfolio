@@ -9,7 +9,8 @@ This repository contains structured technical documentation samples including us
 ### User Guides
 - Remote Health Monitoring System (RHMS) – End-User Manual  
   Covers setup, operation, data interpretation, maintenance, troubleshooting, safety, and compliance.  
-  → [View Project](./Remote%20Health%20Monitoring%20System%20User%20Guide)
+  → [User Guide](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/User%20Guide.pdf)
+
 
 ---
 
