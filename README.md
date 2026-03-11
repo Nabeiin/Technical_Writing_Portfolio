@@ -25,6 +25,33 @@ This repository contains structured technical documentation samples including us
 
 ---
 
+
+### SaaS Technical Integration Guide
+
+## Description
+This document explains how to integrate a SaaS Purchase-to-Pay platform with enterprise systems using APIs, middleware, and ETL pipelines. It includes installation procedures, configuration steps, and integration workflows, testing guidance, and troubleshooting.
+
+##Skills Demonstrated
+•	Technical integration documentation
+•	API workflow explanation
+•	System architecture documentation
+•	Installation and configuration guides
+•	Troubleshooting documentation
+•	Document
+
+SaaS Technical Integration Guide (PDF):
+https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SaaS%20Technical%20Integration%20Guide.pdf
+
+##Skills Demonstrated Across Documents
+•	Technical documentation writing
+•	SaaS documentation
+•	System integration documentation
+•	API documentation
+•	Installation and configuration guides
+•	Troubleshooting and maintenance documentation
+
+
+
 ## Contact
 
 For technical writing opportunities or collaboration, feel free to connect via LinkedIn or email.
