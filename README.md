@@ -52,6 +52,23 @@ This document explains how to integrate a SaaS Purchase-to-Pay platform with ent
 
 
 
+### **SOP – Active Directory User Account Lockout Resolution**
+
+**Description**
+This Standard Operating Procedure (SOP) provides IT staff with a **structured, step-by-step process** to identify, investigate, and resolve **Active Directory user account lockouts**. It includes detection methods, log analysis, account unlocking procedures, troubleshooting guidance, escalation workflows, and preventive measures. Flowcharts and tool usage examples (Event Viewer, LockoutStatus Tool, PowerShell AD module) are included to ensure clarity, reproducibility, and compliance with organizational IT policies.
+
+**Skills Demonstrated**
+
+* SOP development for IT operations
+* Step-by-step procedural and operational writing
+* Active Directory management documentation
+* Troubleshooting and escalation workflow documentation
+* Log analysis and correlation procedures
+* Visual workflow diagrams and flowchart integration
+
+**Document**
+[SOP – Active Directory User Account Lockout Resolution (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SOP-Active-Directory-User-Account-Lockout-Resolution.pdf)
+
 
 
 ## Contact
