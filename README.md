@@ -67,8 +67,8 @@ This SOP provides IT staff with a standardized procedure to identify, investigat
 * Troubleshooting and escalation workflow
 * Log analysis and correlation visualization
 * Flowchart and diagram creation for IT processes
+https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SOP%20%E2%80%93%20Active%20Directory%20User%20Account%20Lockout%20Resolution.pdf
 
-[SOP – Active Directory User Account Lockout Resolution (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SOP%20Active%20Directory%20User%20Account%20Lockout%20Resolution.pdf)
 
 
 
