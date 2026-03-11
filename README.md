@@ -39,8 +39,7 @@ This document explains how to integrate a SaaS Purchase-to-Pay platform with ent
 •	Troubleshooting documentation
 •	Document
 
-SaaS Technical Integration Guide (PDF):
-https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SaaS%20Technical%20Integration%20Guide.pdf
+[SaaS Technical Integration Guide] (https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SaaS%20Technical%20Integration%20Guide.pdf)
 
 ##Skills Demonstrated Across Documents
 •	Technical documentation writing
