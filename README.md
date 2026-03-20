@@ -71,6 +71,25 @@ This Standard Operating Procedure (SOP) provides IT staff with a **structured, s
 
 
 
+### **SOP – Automation and Monitoring of Conveyor and Boiler Systems (PLC & SCADA)**
+
+**Description**
+This Standard Operating Procedure (SOP) outlines the **automation, control, and monitoring processes** for industrial conveyor and boiler systems using **PLC and SCADA architectures**. It covers system overview, control logic, instrumentation, alarm handling, safety interlocks, startup/shutdown procedures, and maintenance workflows. The document is designed to support operators, technicians, and engineers in ensuring **safe, efficient, and reliable plant operations**.
+
+**Skills Demonstrated**
+
+* Industrial automation documentation (PLC & SCADA)
+* Control system architecture and workflow documentation
+* Process control and instrumentation writing
+* Safety and compliance procedures (interlocks, alarms)
+* Operational procedures (startup, shutdown, maintenance)
+* Troubleshooting and fault response documentation
+
+**Document**
+[SOP – Automation and Monitoring of Conveyor and Boiler Systems (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SOP%20for%20Automation%20and%20Monitoring%20of%20Conveyor%20and%20Boiler%20Systems%20Using%20PLC%20%26%20SCADA.pdf)
+
+
+
 ## Contact
 
 For technical writing opportunities or collaboration, feel free to connect via LinkedIn or email.
