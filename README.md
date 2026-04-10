@@ -88,15 +88,24 @@ This Standard Operating Procedure (SOP) outlines the **automation, control, and 
 **Document**
 [SOP – Automation and Monitoring of Conveyor and Boiler Systems (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SOP%20for%20Automation%20and%20Monitoring%20of%20Conveyor%20and%20Boiler%20Systems%20Using%20PLC%20%26%20SCADA.pdf)
 
-Here is a short, clean README entry you can use:
 
----
 
-##  Operation Manual – PLC-Based Auto Labelling System
+### **Operation Manual – PLC-Based Auto Labelling System**
 
-A professionally structured operation manual for an industrial PLC-controlled conveyor labelling system. The document includes system overview, safety instructions, operating modes, HMI control, alarm handling, troubleshooting, and shutdown procedures.
+**Description**
+This Operation Manual describes the **control, operation, and monitoring procedures** of an industrial PLC-based auto labelling system integrated with a conveyor automation setup. It covers system overview, operating modes, HMI control, safety instructions, alarm handling, startup and shutdown procedures, and basic troubleshooting. The document is designed to support operators and technicians in ensuring **safe, consistent, and efficient system operation** in an industrial environment.
 
-[View Document](PRIVATE_URL)
+**Skills Demonstrated**
+
+* Industrial automation documentation (PLC-based control systems)
+* Operation manual development for conveyor-based systems
+* HMI operation and control workflow documentation
+* Safety procedures and machine operation guidelines
+* Alarm handling and fault response documentation
+* Troubleshooting and maintenance support documentation
+
+**Document**
+[Operation Manual – PLC-Based Auto Labelling System (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/Operation%20Manual%20PLC-Based%20Auto%20Labelling%20System.pdf)
 
 
 ## Contact
