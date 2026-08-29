@@ -5,7 +5,7 @@ This repository contains structured technical documentation samples including us
 Documentation Samples
 
 User Guides
-•	Remote Health Monitoring System (RHMS) – End-User Manual Covers setup, operation, data interpretation, maintenance, troubleshooting, safety, and compliance. → User Guide
+•	Remote Health Monitoring System (RHMS) – End-User Manual Covers setup, operation, data interpretation, maintenance, troubleshooting, safety, and compliance.
 ________________________________________
 Skills Demonstrated
 •	Structured documentation development
@@ -19,58 +19,67 @@ ________________________________________
 SaaS Technical Integration Guide
 Description This document explains how to integrate a SaaS Purchase-to-Pay platform with enterprise systems using APIs, middleware, and ETL pipelines. It includes installation procedures, configuration steps, and integration workflows, testing guidance, and troubleshooting.
 Skills Demonstrated
+________________________________________
 •	Technical integration documentation
 •	API workflow explanation
 •	System architecture documentation
 •	Installation and configuration guides
 •	Troubleshooting documentation
-Document SaaS Technical Integration Guide (PDF)
 ________________________________________
+
+
 
 SOP – Active Directory User Account Lockout Resolution
 Description This Standard Operating Procedure (SOP) provides IT staff with a structured, step-by-step process to identify, investigate, and resolve Active Directory user account lockouts. It includes detection methods, log analysis, account unlocking procedures, troubleshooting guidance, escalation workflows, and preventive measures. Flowcharts and tool usage examples (Event Viewer, LockoutStatus Tool, PowerShell AD module) are included to ensure clarity, reproducibility, and compliance with organizational IT policies.
 Skills Demonstrated
+________________________________________
 •	SOP development for IT operations
 •	Step-by-step procedural and operational writing
 •	Active Directory management documentation
 •	Troubleshooting and escalation workflow documentation
 •	Log analysis and correlation procedures
 •	Visual workflow diagrams and flowchart integration
-Document SOP – Active Directory User Account Lockout Resolution (PDF)
+________________________________________
+
 
 SOP – Automation and Monitoring of Conveyor and Boiler Systems (PLC & SCADA)
 Description This Standard Operating Procedure (SOP) outlines the automation, control, and monitoring processes for industrial conveyor and boiler systems using PLC and SCADA architectures. It covers system overview, control logic, instrumentation, alarm handling, safety interlocks, startup/shutdown procedures, and maintenance workflows. The document is designed to support operators, technicians, and engineers in ensuring safe, efficient, and reliable plant operations.
 Skills Demonstrated
+________________________________________
 •	Industrial automation documentation (PLC & SCADA)
 •	Control system architecture and workflow documentation
 •	Process control and instrumentation writing
 •	Safety and compliance procedures (interlocks, alarms)
 •	Operational procedures (startup, shutdown, maintenance)
 •	Troubleshooting and fault response documentation
-Document SOP – Automation and Monitoring of Conveyor and Boiler Systems (PDF)
+________________________________________
+
 
 
 Operation Manual – PLC-Based Auto Labelling System
 Description This Operation Manual describes the control, operation, and monitoring procedures of an industrial PLC-based auto labelling system integrated with a conveyor automation setup. It covers system overview, operating modes, HMI control, safety instructions, alarm handling, startup and shutdown procedures, and basic troubleshooting. The document is designed to support operators and technicians in ensuring safe, consistent, and efficient system operation in an industrial environment.
 Skills Demonstrated
+________________________________________
 •	Industrial automation documentation (PLC-based control systems)
 •	Operation manual development for conveyor-based systems
 •	HMI operation and control workflow documentation
 •	Safety procedures and machine operation guidelines
 •	Alarm handling and fault response documentation
 •	Troubleshooting and maintenance support documentation
-Document Operation Manual – PLC-Based Auto Labelling System (PDF)
+________________________________________
 
 IoT Smart Irrigation and Monitoring System
 Description A full technical documentation set for a sensor-driven IoT irrigation and environment monitoring system built around an Arduino and a Raspberry Pi. Covers system architecture, a subsystem-by-subsystem working-mechanism explainer, pin-level wiring reference, firmware, a Python/Flask dashboard, and a test log that clearly separates verified results from projected outcomes for undeployed extensions. Demonstrates technical writing applied to a real embedded systems project, not just documentation of a finished product — including documenting design corrections and honestly scoping what was tested versus designed-only.
 Skills Demonstrated
+________________________________________
 •	Embedded systems and IoT documentation
 •	Circuit- and firmware-level technical writing
 •	System architecture and block diagram documentation
 •	Honest scoping of tested vs. untested / designed-only work
 •	Technical explainer writing (what/how/why structure)
 •	Wiring and connection reference documentation
-Folder IoT Smart Irrigation System
+________________________________________
+
 
 ________________________________________
 Contact
