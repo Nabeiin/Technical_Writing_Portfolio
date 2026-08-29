@@ -1,115 +1,146 @@
+# IoT smart irrigation and monitoring system
 
-Technical Writing Portfolio
+A sensor-driven irrigation and environment monitoring system built around
+an Arduino and a Raspberry Pi. Soil moisture, temperature, and light are
+read continuously and used to control a solenoid valve, a heating/cooling
+relay, and a lighting relay. A Raspberry Pi exposes live readings over a
+web dashboard.
 
-This repository contains structured technical documentation samples including user guides, system manuals, troubleshooting guides, and technical specifications.
----
+`Arduino` `C++` `Raspberry Pi` `Python` `Flask` `SQLite` `MQTT (planned)` `Embedded systems`
 
-## Documentation Samples
+## Status
 
-### User Guides
-- Remote Health Monitoring System (RHMS) – End-User Manual  
-  Covers setup, operation, data interpretation, maintenance, troubleshooting, safety, and compliance.  
-  → [User Guide](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/User%20Guide.pdf)
+This repo covers two layers, and they are at different stages:
 
+- **Core system** - soil moisture, temperature, light, and water level
+  sensing, with pump/solenoid/relay control. This was physically built
+  and tested as a bachelor's project.
+- **Extended design** - humidity, rain, pH, and flow sensing, dual-channel
+  temperature control, protection components (flyback diodes, dividers,
+  decoupling), and an MQTT/cloud connectivity layer. This is designed and
+  documented (schematic-level and in firmware) but **not yet physically
+  built or tested**. It's flagged as such throughout this README and in
+  `docs/`.
 
----
+## Features
 
-## Skills Demonstrated
+- Soil-moisture-triggered irrigation via a solenoid valve
+- Rain and humidity used as overrides, so irrigation doesn't run
+  needlessly (extended design)
+- Temperature-based heating and cooling on two independent relay channels
+- Light-based LED/relay control
+- Water tank level detection via a 4-probe ladder, with automatic refill
+- Water usage tracking via a flow sensor (extended design)
+- Local web dashboard on the Raspberry Pi; MQTT/cloud publishing planned
+  (extended design)
 
-- Structured documentation development  
-- Step-by-step procedural writing  
-- Technical accuracy and clarity  
-- Safety & compliance documentation  
-- Version control using Git  
-- Markdown formatting  
+## System architecture
 
----
+The system is organized into four layers: sensing, control, actuation,
+and connectivity. See `docs/architecture.png` for the full block diagram
+and `docs/circuit-diagram.png` for wiring.
 
+```
+Sensors -> Microcontroller (decision logic) -> Actuators
+                    |
+              Raspberry Pi -> Dashboard / MQTT / Cloud
+```
 
-### SaaS Technical Integration Guide
+## Hardware
 
-## Description
-This document explains how to integrate a SaaS Purchase-to-Pay platform with enterprise systems using APIs, middleware, and ETL pipelines. It includes installation procedures, configuration steps, and integration workflows, testing guidance, and troubleshooting.
+| Component | Purpose | Status |
+|---|---|---|
+| Soil moisture sensor | Triggers irrigation | Built & tested |
+| NTC temperature sensor | Drives heating/cooling | Built & tested |
+| LDR (light sensor) | Drives lighting relay | Built & tested |
+| Water level probes (4-stage) | Tank refill logic | Built & tested |
+| Solenoid valve | Field irrigation | Built & tested |
+| Relay modules | Switch loads | Built & tested |
+| Water pump + motor driver | Fills tank | Built & tested |
+| Raspberry Pi 3 (hardware + serial link) | Local dashboard host | Built & tested |
+| DHT22 (humidity) | Irrigation override | Designed, not built |
+| Rain sensor | Irrigation override | Designed, not built |
+| Soil pH sensor | Nutrient monitoring | Designed, not built |
+| Water flow sensor | Usage tracking | Designed, not built |
+| Flyback diodes | Protects transistors from inductive spikes | Designed correction |
+| Voltage divider resistors | Required for LDR and NTC readings | Designed correction |
+| Decoupling capacitor | Protects MCU from switching noise | Designed correction |
 
-##Skills Demonstrated
-•	Technical integration documentation
-•	API workflow explanation
-•	System architecture documentation
-•	Installation and configuration guides
-•	Troubleshooting documentation
-•	Document
+Full pin-level wiring is in `docs/connection-map.md`.
 
+**Note on the dashboard software specifically:** the original project's
+dashboard was written in PHP/Apache/MySQL and was part of the tested
+build. It's since been rewritten in Python (Flask/SQLite) for a simpler,
+single-language stack — that rewrite has been tested locally with sample
+data but not deployed against the real Arduino/Pi hardware. The Pi
+hardware and serial connection themselves were part of the original
+tested build; the current dashboard *code* is new.
 
-[SaaS Technical Integration Guide (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SaaS%20Technical%20Integration%20Guide.pdf)
+## How it works
 
-##Skills Demonstrated Across Documents
-•	Technical documentation writing
-•	SaaS documentation
-•	System integration documentation
-•	API documentation
-•	Installation and configuration guides
-•	Troubleshooting and maintenance documentation
+See `docs/working-mechanism.md` for the full technical explainer,
+including the irrigation override logic, the NTC-to-Celsius conversion,
+and the water level and flow subsystems.
 
+## Repository structure
 
+```
+iot-smart-irrigation-system/
+├── README.md
+├── firmware/
+│   └── irrigation_controller.ino
+├── raspberrypi/
+│   ├── dashboard/
+│   │   ├── app.py
+│   │   ├── serial_logger.py
+│   │   └── templates/
+│   │       └── index.html
+│   └── setup.md
+├── docs/
+│   ├── working-mechanism.md
+│   ├── connection-map.md
+│   ├── architecture.png
+│   └── circuit-diagram.png
+├── results/
+│   └── test-log.md
+└── LICENSE
+```
 
-### **SOP – Active Directory User Account Lockout Resolution**
+## Setup
 
-**Description**
-This Standard Operating Procedure (SOP) provides IT staff with a **structured, step-by-step process** to identify, investigate, and resolve **Active Directory user account lockouts**. It includes detection methods, log analysis, account unlocking procedures, troubleshooting guidance, escalation workflows, and preventive measures. Flowcharts and tool usage examples (Event Viewer, LockoutStatus Tool, PowerShell AD module) are included to ensure clarity, reproducibility, and compliance with organizational IT policies.
+1. Flash `firmware/irrigation_controller.ino` to the Arduino (Arduino IDE
+   or `arduino-cli`).
+2. Wire components per `docs/connection-map.md`.
+3. On the Raspberry Pi, install Python dependencies and run the dashboard
+   (Flask + SQLite, no Apache/MySQL needed) — see `raspberrypi/setup.md`.
+4. Connect Arduino to the Pi via USB for serial data.
+5. Power on and confirm sensor readings appear on the dashboard.
 
-**Skills Demonstrated**
+## Results
 
-* SOP development for IT operations
-* Step-by-step procedural and operational writing
-* Active Directory management documentation
-* Troubleshooting and escalation workflow documentation
-* Log analysis and correlation procedures
-* Visual workflow diagrams and flowchart integration
+From the original built-and-tested core system: the tank refill sequence
+was verified across all four probe stages, with the pump activating on
+empty and shutting off at full. Soil-moisture-triggered irrigation and
+light/temperature-driven relay switching were verified to respond
+correctly to sensor thresholds during testing. See `results/test-log.md`
+for details.
 
-**Document**
-[SOP – Active Directory User Account Lockout Resolution (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SOP-Active-Directory-User-Account-Lockout-Resolution.pdf)
+The extended sensors and connectivity layer have not been tested, since
+they exist only at the design/firmware level.
 
+## Known limitations
 
+- Extended sensors (humidity, rain, pH, flow) are unverified — pH in
+  particular requires physical calibration against buffer solutions
+  before its readings mean anything.
+- The dashboard (Flask/SQLite) was rewritten from the original tested
+  PHP/MySQL version and has only been verified locally with sample data,
+  not against the real hardware end-to-end.
+- Local dashboard only; MQTT/cloud publishing is designed but not wired
+  up in the current dashboard code.
+- No data logging analysis or charts yet — readings are stored over
+  time in SQLite, but the dashboard only shows the latest row.
 
-### **SOP – Automation and Monitoring of Conveyor and Boiler Systems (PLC & SCADA)**
+## License
 
-**Description**
-This Standard Operating Procedure (SOP) outlines the **automation, control, and monitoring processes** for industrial conveyor and boiler systems using **PLC and SCADA architectures**. It covers system overview, control logic, instrumentation, alarm handling, safety interlocks, startup/shutdown procedures, and maintenance workflows. The document is designed to support operators, technicians, and engineers in ensuring **safe, efficient, and reliable plant operations**.
-
-**Skills Demonstrated**
-
-* Industrial automation documentation (PLC & SCADA)
-* Control system architecture and workflow documentation
-* Process control and instrumentation writing
-* Safety and compliance procedures (interlocks, alarms)
-* Operational procedures (startup, shutdown, maintenance)
-* Troubleshooting and fault response documentation
-
-**Document**
-[SOP – Automation and Monitoring of Conveyor and Boiler Systems (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/SOP%20for%20Automation%20and%20Monitoring%20of%20Conveyor%20and%20Boiler%20Systems%20Using%20PLC%20%26%20SCADA.pdf)
-
-
-
-### **Operation Manual – PLC-Based Auto Labelling System**
-
-**Description**
-This Operation Manual describes the **control, operation, and monitoring procedures** of an industrial PLC-based auto labelling system integrated with a conveyor automation setup. It covers system overview, operating modes, HMI control, safety instructions, alarm handling, startup and shutdown procedures, and basic troubleshooting. The document is designed to support operators and technicians in ensuring **safe, consistent, and efficient system operation** in an industrial environment.
-
-**Skills Demonstrated**
-
-* Industrial automation documentation (PLC-based control systems)
-* Operation manual development for conveyor-based systems
-* HMI operation and control workflow documentation
-* Safety procedures and machine operation guidelines
-* Alarm handling and fault response documentation
-* Troubleshooting and maintenance support documentation
-
-**Document**
-[Operation Manual – PLC-Based Auto Labelling System (PDF)](https://github.com/Nabeiin/Technical_Writing_Portfolio/blob/main/Operation%20Manual%20PLC-Based%20Auto%20Labelling%20System.pdf)
-
-
-## Contact
-
-For technical writing opportunities or collaboration, feel free to connect via LinkedIn or email.
-
-
+MIT

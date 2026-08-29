@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="5">
+    <title>Irrigation System Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; color: #222; }
+        h1 { font-size: 22px; }
+        .timestamp { color: #666; font-size: 13px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        td, th { text-align: left; padding: 8px 10px; border-bottom: 1px solid #ddd; }
+        .on { color: #0a7d34; font-weight: bold; }
+        .off { color: #999; }
+        .no-data { color: #a33; }
+    </style>
+</head>
+<body>
+    <h1>Irrigation System - Live Readings</h1>
+
+    {% if reading %}
+        <p class="timestamp">Last updated: {{ reading['reading_time'] }} (page refreshes every 5s)</p>
+        <table>
+            <tr><th>Sensor</th><th>Value</th></tr>
+            <tr><td>Soil moisture (raw)</td><td>{{ reading['soil_moisture'] }}</td></tr>
+            <tr><td>Temperature</td><td>{{ reading['temperature_c'] }} &deg;C</td></tr>
+            <tr><td>Light level (raw)</td><td>{{ reading['light_level'] }}</td></tr>
+            <tr><td>Humidity</td><td>{{ reading['humidity_pct'] if reading['humidity_pct'] is not none else '—' }}{{ '%' if reading['humidity_pct'] is not none }}</td></tr>
+            <tr><td>Rain detected</td><td>{% if reading['rain_detected'] %}<span class="on">Yes</span>{% else %}<span class="off">No</span>{% endif %}</td></tr>
+            <tr><td>Soil pH</td><td>{{ reading['ph_value'] if reading['ph_value'] is not none else '—' }}</td></tr>
+            <tr><td>Water tank stage</td><td>{{ reading['water_level_stage'] }} / 4</td></tr>
+            <tr><td>Total water used</td><td>{{ reading['total_litres'] }} L</td></tr>
+            <tr><td>Solenoid (irrigating)</td><td>{% if reading['solenoid_open'] %}<span class="on">Open</span>{% else %}<span class="off">Closed</span>{% endif %}</td></tr>
+            <tr><td>Cooling relay</td><td>{% if reading['cooling_on'] %}<span class="on">On</span>{% else %}<span class="off">Off</span>{% endif %}</td></tr>
+            <tr><td>Heating relay</td><td>{% if reading['heating_on'] %}<span class="on">On</span>{% else %}<span class="off">Off</span>{% endif %}</td></tr>
+        </table>
+    {% else %}
+        <p class="no-data">No readings yet. Confirm serial_logger.py is running and the Arduino is connected.</p>
+    {% endif %}
+</body>
+</html>
