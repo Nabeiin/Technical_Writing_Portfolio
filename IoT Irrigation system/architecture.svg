@@ -1,0 +1,108 @@
+<svg width="900" height="760" viewBox="0 0 900 760" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+<rect width="900" height="760" fill="#ffffff"/>
+
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<!-- Title -->
+<text x="450" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">IoT irrigation and monitoring system - architecture</text>
+
+<!-- Sensing layer -->
+<rect x="40" y="60" width="820" height="150" rx="16" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<text x="60" y="86" font-size="16" font-weight="bold" fill="#085041">Sensing layer</text>
+<text x="60" y="106" font-size="12" fill="#0f6e56">Eight sensors, all inputs from the field</text>
+
+<g fill="#f1efe8" stroke="#5f5e5a" stroke-width="1">
+<rect x="60" y="120" width="180" height="40" rx="8"/>
+<rect x="260" y="120" width="180" height="40" rx="8"/>
+<rect x="460" y="120" width="180" height="40" rx="8"/>
+<rect x="660" y="120" width="180" height="40" rx="8"/>
+<rect x="60" y="168" width="180" height="40" rx="8"/>
+<rect x="260" y="168" width="180" height="40" rx="8"/>
+<rect x="460" y="168" width="180" height="40" rx="8"/>
+<rect x="660" y="168" width="180" height="40" rx="8"/>
+</g>
+<g font-size="13" fill="#2c2c2a" text-anchor="middle">
+<text x="150" y="144">Soil moisture (A0)</text>
+<text x="350" y="144">Temperature (A1)</text>
+<text x="550" y="144">LDR light (A2)</text>
+<text x="750" y="144">Water level (D4-D7)</text>
+<text x="150" y="192">DHT22 humidity (D11)</text>
+<text x="350" y="192">Rain sensor (A3)</text>
+<text x="550" y="192">Soil pH (A4)</text>
+<text x="750" y="192">Water flow (D3)</text>
+</g>
+
+<line x1="450" y1="210" x2="450" y2="240" stroke="#555555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Control layer -->
+<rect x="40" y="242" width="820" height="110" rx="16" fill="#eeedfe" stroke="#534ab7" stroke-width="1"/>
+<text x="60" y="268" font-size="16" font-weight="bold" fill="#26215c">Control layer</text>
+<text x="60" y="288" font-size="12" fill="#3c3489">Microcontroller plus protection parts</text>
+
+<g fill="#f1efe8" stroke="#5f5e5a" stroke-width="1">
+<rect x="130" y="298" width="200" height="40" rx="8"/>
+<rect x="350" y="298" width="200" height="40" rx="8"/>
+<rect x="570" y="298" width="200" height="40" rx="8"/>
+</g>
+<g font-size="13" fill="#2c2c2a" text-anchor="middle">
+<text x="230" y="322">Microcontroller</text>
+<text x="450" y="322">Decoupling capacitor</text>
+<text x="670" y="322">Voltage regulator</text>
+</g>
+
+<line x1="450" y1="352" x2="450" y2="382" stroke="#555555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Actuation layer -->
+<rect x="40" y="384" width="820" height="150" rx="16" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<text x="60" y="410" font-size="16" font-weight="bold" fill="#4a1b0c">Actuation layer</text>
+<text x="60" y="430" font-size="12" fill="#993c1d">Outputs, with protection parts noted</text>
+
+<g fill="#f1efe8" stroke="#5f5e5a" stroke-width="1">
+<rect x="60" y="444" width="180" height="40" rx="8"/>
+<rect x="260" y="444" width="180" height="40" rx="8"/>
+<rect x="460" y="444" width="180" height="40" rx="8"/>
+<rect x="200" y="492" width="220" height="40" rx="8"/>
+<rect x="440" y="492" width="240" height="40" rx="8"/>
+</g>
+<g font-size="13" fill="#2c2c2a" text-anchor="middle">
+<text x="150" y="468">Water pump (D8)</text>
+<text x="350" y="468">Relay + flyback diode (D10/13)</text>
+<text x="550" y="468">Solenoid + flyback diode (D9)</text>
+<text x="310" y="516">Switching transistor + base R</text>
+<text x="560" y="516">Indicator LEDs + resistor</text>
+</g>
+
+<line x1="450" y1="534" x2="450" y2="564" stroke="#555555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Connectivity layer -->
+<rect x="40" y="566" width="820" height="150" rx="16" fill="#e6f1fb" stroke="#185fa5" stroke-width="1"/>
+<text x="60" y="592" font-size="16" font-weight="bold" fill="#042c53">Connectivity layer</text>
+<text x="60" y="612" font-size="12" fill="#0c447c">Data path from device to cloud (MQTT/cloud stages are designed, not yet implemented)</text>
+
+<g fill="#f1efe8" stroke="#5f5e5a" stroke-width="1">
+<rect x="60" y="626" width="170" height="60" rx="8"/>
+<rect x="260" y="626" width="170" height="60" rx="8"/>
+<rect x="460" y="626" width="170" height="60" rx="8"/>
+<rect x="660" y="626" width="170" height="60" rx="8"/>
+</g>
+<g font-size="13" fill="#2c2c2a" text-anchor="middle">
+<text x="145" y="652">Arduino MCU</text>
+<text x="145" y="670" font-size="11" fill="#5f5e5a">USB serial</text>
+<text x="345" y="652">Raspberry Pi</text>
+<text x="345" y="670" font-size="11" fill="#5f5e5a">Local dashboard</text>
+<text x="545" y="652">MQTT broker</text>
+<text x="545" y="670" font-size="11" fill="#5f5e5a">Designed, not built</text>
+<text x="745" y="652">Cloud service</text>
+<text x="745" y="670" font-size="11" fill="#5f5e5a">Designed, not built</text>
+</g>
+
+<line x1="230" y1="656" x2="258" y2="656" stroke="#555555" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="430" y1="656" x2="458" y2="656" stroke="#555555" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="630" y1="656" x2="658" y2="656" stroke="#555555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<text x="450" y="748" text-anchor="middle" font-size="11" fill="#5f5e5a">Gray boxes = individual components. Colored bands = system layers.</text>
+</svg>
